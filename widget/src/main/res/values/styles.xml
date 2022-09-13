@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HeadingUbuntu_20">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/color_primary_black</item>
+        <item name="android:textSize">@dimen/text_20</item>
+    </style>
+
+    <style name="HeadingUbuntu_24">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/color_primary_black</item>
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppToolbar">
+        <attr name="appToolbarTitle" format="string|reference" />
+        <attr name="appToolbarNavigationIcon" format="reference" />
+        <attr name="appToolbarNavigationIconColor" format="color|reference" />
+    </declare-styleable>
+
+</resources>

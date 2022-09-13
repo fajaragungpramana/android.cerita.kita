@@ -1,3 +1,3 @@
 <resources>
-    <string name="app_name">Cerita Kita</string>
+    <string name="application_name">Cerita <font color="#36B991">Kita</font></string>
 </resources>

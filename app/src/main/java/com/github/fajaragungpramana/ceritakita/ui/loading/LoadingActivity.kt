@@ -1,4 +1,4 @@
-package com.github.fajaragungpramana.ceritakita.ui
+package com.github.fajaragungpramana.ceritakita.ui.loading
 
 import android.os.Bundle
 import com.github.fajaragungpramana.ceritakita.common.app.AppActivity

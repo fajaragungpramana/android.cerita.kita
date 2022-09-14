@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.github.fajaragungpramana.ceritakita.R
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentBoardingBinding
 import com.github.fajaragungpramana.ceritakita.ui.adapter.BoardingAdapter
-import com.github.fajaragungpramana.ceritakita.widget.extension.snackbar
+import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -31,7 +32,11 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
 
         viewBinding.vpBoarding.adapter = mBoardingAdapter
         viewBinding.mbNext.setOnClickListener {
-            if (mBoardingSize > 0) viewBinding.vpBoarding.currentItem = mBoardingSize
+            if (viewBinding.vpBoarding.currentItem == mBoardingSize) {
+                val action = BoardingFragmentDirections.actionBoardingFragmentToLoginFragment()
+                findNavController().navigate(action)
+            } else
+                viewBinding.vpBoarding.currentItem += 1
         }
         viewBinding.vpBoarding.registerOnPageChangeCallback(
             object : ViewPager2.OnPageChangeCallback() {
@@ -55,7 +60,7 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
                         mBoardingAdapter.submitList(it.listBoarding)
                     }
                     is BoardingState.OnBoardingFailure -> {
-                        viewBinding.llcBoarding.snackbar(it.message)
+                        viewBinding.llcBoarding.snackBar(it.message)
                     }
                 }
             }

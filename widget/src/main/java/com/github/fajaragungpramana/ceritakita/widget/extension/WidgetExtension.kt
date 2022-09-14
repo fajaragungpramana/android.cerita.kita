@@ -6,7 +6,15 @@ import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 
+fun View.visible(isVisible: Boolean) {
+    visibility = if (isVisible) View.VISIBLE else View.GONE
+}
+
+fun View.shown(isShown: Boolean) {
+    visibility = if (isShown) View.VISIBLE else View.INVISIBLE
+}
+
 fun Context.getApplicationColor(@ColorRes res: Int) = ContextCompat.getColor(this, res)
 
-fun View.snackbar(message: String?, duration: Int = Snackbar.LENGTH_SHORT) =
+fun View.snackBar(message: String?, duration: Int = Snackbar.LENGTH_SHORT) =
     Snackbar.make(this, message ?: "", duration).show()

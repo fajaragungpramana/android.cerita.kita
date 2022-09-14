@@ -7,4 +7,23 @@
         <attr name="appToolbarNavigationIconColor" format="color|reference" />
     </declare-styleable>
 
+    <declare-styleable name="AppEditText">
+        <attr name="appEditTextHint" format="string|reference" />
+        <attr name="appEditTextValue" format="string|reference" />
+        <attr name="appEditTextEnable" format="boolean|reference" />
+        <attr name="appEditTextMaxLines" format="integer|reference" />
+        <attr name="appEditTextMaxLength" format="integer|reference" />
+        <attr name="appEditTextInputType" format="enum">
+            <enum name="text" value="0x00000001" />
+            <enum name="textCapWords" value="0x00002001" />
+            <enum name="textEmailAddress" value="0x00000021" />
+            <enum name="textPassword" value="0x00000081" />
+            <enum name="number" value="0x00000002" />
+            <enum name="numberDecimal" value="0x00002002" />
+            <enum name="phone" value="0x00000003" />
+        </attr>
+        <attr name="appEditTextErrorMessage" format="string|reference" />
+        <attr name="appEditTextErrorEnable" format="boolean|reference" />
+    </declare-styleable>
+
 </resources>

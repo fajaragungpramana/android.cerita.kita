@@ -8,6 +8,19 @@
     <fragment
         android:id="@+id/boardingFragment"
         android:name="com.github.fajaragungpramana.ceritakita.ui.auth.boarding.BoardingFragment"
-        tools:layout="@layout/fragment_boarding" />
+        tools:layout="@layout/fragment_boarding">
+        <action
+            android:id="@+id/action_boardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.auth.login.LoginFragment"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>

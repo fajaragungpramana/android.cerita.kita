@@ -4,4 +4,10 @@
     <string name="skip">Skip</string>
     <string name="next">Next</string>
     <string name="let_start">Let\'s Start</string>
+    <string name="login_register_come_on">Login / Register Come on!</string>
+    <string name="please_enter_your_registered_email_and_password">Please enter your registered email and password.</string>
+    <string name="email">Email</string>
+    <string name="invalid_email_format">Invalid email format.</string>
+    <string name="password_min_6_character">Password min 6 character.</string>
+    <string name="password">Password</string>
 </resources>

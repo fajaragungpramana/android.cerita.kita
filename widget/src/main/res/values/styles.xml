@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Text_0">
+        <item name="android:textSize">@dimen/text_0</item>
+    </style>
+
     <style name="HeadingUbuntu_20">
         <item name="android:fontFamily">@font/ubuntu_medium</item>
         <item name="android:textColor">@color/color_primary_black</item>
@@ -15,7 +19,12 @@
 
     <style name="BodyUbuntu_14">
         <item name="android:fontFamily">@font/ubuntu_medium</item>
-        <item name="android:textColor">@color/color_secondary_gray</item>
+        <item name="android:textColor">@color/color_primary_gray</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
+
+    <style name="BodyRoboto_14">
+        <item name="android:textColor">@color/color_primary_gray</item>
         <item name="android:textSize">@dimen/text_14</item>
     </style>
 

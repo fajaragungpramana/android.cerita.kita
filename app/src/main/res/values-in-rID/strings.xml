@@ -5,4 +5,10 @@
     <string name="skip">Lewati</string>
     <string name="next">Lanjut</string>
     <string name="let_start">Ayo Mulai</string>
+    <string name="login_register_come_on">Masuk / Daftar Yuk!</string>
+    <string name="please_enter_your_registered_email_and_password">Silahkan masukkan email dan password yang terdaftar.</string>
+    <string name="email">Email</string>
+    <string name="invalid_email_format">Format email salah.</string>
+    <string name="password_min_6_character">Kata sandi min 6 karakter.</string>
+    <string name="password">Kata sandi</string>
 </resources>

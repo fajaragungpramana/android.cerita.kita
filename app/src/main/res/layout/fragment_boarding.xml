@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llc_boarding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtv_skip"
+        style="@style/BodyUbuntu_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:text="@string/skip" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vp_boarding"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_next"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:text="@string/next" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -2,4 +2,7 @@
 <resources>
     <string name="application_name">Cerita <font color="#36B991">Kita</font></string>
     <string name="unknown">Tidak Diketahui</string>
+    <string name="skip">Lewati</string>
+    <string name="next">Lanjut</string>
+    <string name="let_start">Ayo Mulai</string>
 </resources>

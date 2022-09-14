@@ -7,4 +7,6 @@
     <color name="color_primary_white">@android:color/white</color>
     <color name="color_primary_gray">#7E7E84</color>
 
+    <color name="color_secondary_gray">#BDBDBD</color>
+
 </resources>

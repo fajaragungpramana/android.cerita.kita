@@ -1,4 +1,7 @@
 <resources>
     <string name="application_name">Cerita <font color="#36B991">Kita</font></string>
     <string name="unknown">Unknown</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="let_start">Let\'s Start</string>
 </resources>

@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.widget.ViewPager2
+import com.github.fajaragungpramana.ceritakita.R
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentBoardingBinding
 import com.github.fajaragungpramana.ceritakita.ui.adapter.BoardingAdapter
+import com.github.fajaragungpramana.ceritakita.widget.extension.snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -18,6 +21,8 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
 
     private val mBoardingAdapter by lazy { BoardingAdapter() }
 
+    private var mBoardingSize = 0
+
     override fun onViewBinding(container: ViewGroup?) =
         FragmentBoardingBinding.inflate(layoutInflater, container, false)
 
@@ -25,6 +30,18 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
         mViewModel.getListBoarding()
 
         viewBinding.vpBoarding.adapter = mBoardingAdapter
+        viewBinding.mbNext.setOnClickListener {
+            if (mBoardingSize > 0) viewBinding.vpBoarding.currentItem = mBoardingSize
+        }
+        viewBinding.vpBoarding.registerOnPageChangeCallback(
+            object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+
+                    viewBinding.mbNext.text = if (position == mBoardingSize)
+                        getString(R.string.let_start) else getString(R.string.next)
+                }
+            })
     }
 
     override fun onStateObserver() {
@@ -34,9 +51,11 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
                 when (it) {
                     is BoardingState.OnBoardingLoading -> {}
                     is BoardingState.OnBoardingSuccess -> {
+                        mBoardingSize = (it.listBoarding?.size ?: 0) - 1
                         mBoardingAdapter.submitList(it.listBoarding)
                     }
                     is BoardingState.OnBoardingFailure -> {
+                        viewBinding.llcBoarding.snackbar(it.message)
                     }
                 }
             }

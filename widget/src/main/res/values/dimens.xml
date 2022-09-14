@@ -2,6 +2,9 @@
 <resources>
 
     <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_24">24dp</dimen>
+    <dimen name="dimen_32">32dp</dimen>
+    <dimen name="dimen_56">56dp</dimen>
     <dimen name="dimen_100">100dp</dimen>
 
     <dimen name="text_12">12sp</dimen>

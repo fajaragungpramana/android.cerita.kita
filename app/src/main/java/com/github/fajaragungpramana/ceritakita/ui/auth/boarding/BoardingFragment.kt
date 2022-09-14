@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentBoardingBinding
+import com.github.fajaragungpramana.ceritakita.ui.adapter.BoardingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -15,11 +16,15 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
 
     private val mViewModel: BoardingViewModel by viewModels()
 
+    private val mBoardingAdapter by lazy { BoardingAdapter() }
+
     override fun onViewBinding(container: ViewGroup?) =
         FragmentBoardingBinding.inflate(layoutInflater, container, false)
 
     override fun onCreated(savedInstanceState: Bundle?) {
         mViewModel.getListBoarding()
+
+        viewBinding.vpBoarding.adapter = mBoardingAdapter
     }
 
     override fun onStateObserver() {
@@ -29,7 +34,7 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
                 when (it) {
                     is BoardingState.OnBoardingLoading -> {}
                     is BoardingState.OnBoardingSuccess -> {
-
+                        mBoardingAdapter.submitList(it.listBoarding)
                     }
                     is BoardingState.OnBoardingFailure -> {
                     }

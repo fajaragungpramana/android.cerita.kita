@@ -1,5 +1,6 @@
 package com.github.fajaragungpramana.ceritakita.data.local.boarding.model
 
+import androidx.recyclerview.widget.DiffUtil
 import com.github.fajaragungpramana.ceritakita.data.local.boarding.entity.BoardingEntity
 
 data class Boarding(
@@ -8,6 +9,16 @@ data class Boarding(
     val description: String? = null
 ) {
     companion object {
+
+        val diffUtil = object : DiffUtil.ItemCallback<Boarding>() {
+
+            override fun areContentsTheSame(oldItem: Boarding, newItem: Boarding) =
+                oldItem == newItem
+
+            override fun areItemsTheSame(oldItem: Boarding, newItem: Boarding) =
+                oldItem.title == newItem.title
+
+        }
 
         fun mapList(listBoardingEntity: List<BoardingEntity>): List<Boarding> {
             val data = ArrayList<Boarding>()

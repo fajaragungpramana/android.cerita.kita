@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="boarding_title">
+        <item>Inspirational Stories</item>
+        <item>Create Story</item>
+    </string-array>
+    <string-array name="boarding_description">
+        <item>Many stories are shared by our friends who are studying or who have graduated from Dicoding Indonesia.</item>
+        <item>You can share your experience with friends while studying at Dicoding Indonesia</item>
+    </string-array>
+</resources>

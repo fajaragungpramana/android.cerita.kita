@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <array name="boarding_image">
+        <item>@drawable/ic_boarding_one</item>
+        <item>@drawable/ic_boarding_two</item>
+    </array>
     <string-array name="boarding_title">
         <item>Inspirational Stories</item>
         <item>Create Story</item>

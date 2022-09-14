@@ -3,6 +3,7 @@ package com.github.fajaragungpramana.ceritakita.data.local.boarding.model
 import com.github.fajaragungpramana.ceritakita.data.local.boarding.entity.BoardingEntity
 
 data class Boarding(
+    val image: Int? = null,
     val title: String? = null,
     val description: String? = null
 ) {
@@ -13,6 +14,7 @@ data class Boarding(
             listBoardingEntity.map {
                 data.add(
                     Boarding(
+                        image = it.image,
                         title = it.title,
                         description = it.description
                     )

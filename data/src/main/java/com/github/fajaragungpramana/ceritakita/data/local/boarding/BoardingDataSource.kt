@@ -13,17 +13,21 @@ class BoardingDataSource @Inject constructor() : IBoardingDataSource {
             val data = ArrayList<BoardingEntity>()
             val resources = context.resources
 
+            val listBoardingImage = resources.obtainTypedArray(R.array.boarding_image)
             val listBoardingTitle = resources.getStringArray(R.array.boarding_title)
             val listBoardingDescription = resources.getStringArray(R.array.boarding_description)
 
             for (i in listBoardingTitle.indices) {
                 data.add(
                     BoardingEntity(
+                        image = listBoardingImage.getResourceId(i, 0),
                         title = listBoardingTitle[i],
                         description = listBoardingDescription[i]
                     )
                 )
             }
+
+            listBoardingImage.recycle()
 
             data
         } else {

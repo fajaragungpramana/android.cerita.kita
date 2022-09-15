@@ -1,6 +1,7 @@
 package com.github.fajaragungpramana.ceritakita.widget.extension
 
 import android.content.Context
+import android.util.Patterns
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
@@ -18,3 +19,7 @@ fun Context.getApplicationColor(@ColorRes res: Int) = ContextCompat.getColor(thi
 
 fun View.snackBar(message: String?, duration: Int = Snackbar.LENGTH_SHORT) =
     Snackbar.make(this, message ?: "", duration).show()
+
+
+fun String?.isValidEmail() = Patterns.EMAIL_ADDRESS.matcher(this ?: "").matches()
+fun String?.isValidPassword() = (this?.length ?: 0) > 6

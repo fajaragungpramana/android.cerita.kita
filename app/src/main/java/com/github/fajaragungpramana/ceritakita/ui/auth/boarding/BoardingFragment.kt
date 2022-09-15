@@ -30,12 +30,12 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
     override fun onCreated(savedInstanceState: Bundle?) {
         mViewModel.getListBoarding()
 
+        viewBinding.mtvSkip.setOnClickListener { gotoLogIn() }
         viewBinding.vpBoarding.adapter = mBoardingAdapter
         viewBinding.mbNext.setOnClickListener {
-            if (viewBinding.vpBoarding.currentItem == mBoardingSize) {
-                val action = BoardingFragmentDirections.actionBoardingFragmentToLoginFragment()
-                findNavController().navigate(action)
-            } else
+            if (viewBinding.vpBoarding.currentItem == mBoardingSize)
+                gotoLogIn()
+            else
                 viewBinding.vpBoarding.currentItem += 1
         }
         viewBinding.vpBoarding.registerOnPageChangeCallback(
@@ -67,6 +67,11 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
             }
 
         }
+    }
+
+    private fun gotoLogIn() {
+        val action = BoardingFragmentDirections.actionBoardingFragmentToLoginFragment()
+        findNavController().navigate(action)
     }
 
 }

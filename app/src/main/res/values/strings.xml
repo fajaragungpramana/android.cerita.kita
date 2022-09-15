@@ -10,4 +10,6 @@
     <string name="invalid_email_format">Invalid email format.</string>
     <string name="password_min_6_character">Password min 6 character.</string>
     <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? <font color="#36B991"><b>Register</b></font></string>
 </resources>

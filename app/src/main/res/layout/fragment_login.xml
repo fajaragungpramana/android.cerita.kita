@@ -41,4 +41,26 @@
         app:appEditTextHint="@string/password"
         app:appEditTextInputType="textPassword" />
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_login"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:text="@string/log_in" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/CaptionRoboto_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/don_t_have_an_account_register"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dimen_16" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -13,6 +13,8 @@ import androidx.core.widget.addTextChangedListener
 import com.github.fajaragungpramana.ceritakita.widget.R
 import com.github.fajaragungpramana.ceritakita.widget.databinding.AppEditTextBinding
 import com.github.fajaragungpramana.ceritakita.widget.extension.getApplicationColor
+import com.github.fajaragungpramana.ceritakita.widget.extension.isValidEmail
+import com.github.fajaragungpramana.ceritakita.widget.extension.isValidPassword
 import com.github.fajaragungpramana.ceritakita.widget.extension.visible
 
 class AppEditText(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
@@ -97,6 +99,23 @@ class AppEditText(context: Context, attrs: AttributeSet?) : FrameLayout(context,
             errorMessage = getString(R.styleable.AppEditText_appEditTextErrorMessage)
             isErrorEnabled = getBoolean(R.styleable.AppEditText_appEditTextErrorEnable, false)
         }.recycle()
+
+        initTextErrorListener()
+    }
+
+    private fun initTextErrorListener() {
+        mViewBinding.tieInput.addTextChangedListener {
+            val text = it.toString().trim()
+
+            when (inputType?.minus(1)) {
+                InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS -> {
+                    isErrorEnabled = !text.isValidEmail()
+                }
+                InputType.TYPE_TEXT_VARIATION_PASSWORD -> {
+                    isErrorEnabled = !text.isValidPassword()
+                }
+            }
+        }
     }
 
     fun addTextChangedListener(invoke: (String?) -> Unit) {

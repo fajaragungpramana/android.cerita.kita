@@ -11,4 +11,6 @@
     <string name="invalid_email_format">Format email salah.</string>
     <string name="password_min_6_character">Kata sandi min 6 karakter.</string>
     <string name="password">Kata sandi</string>
+    <string name="log_in">Masuk</string>
+    <string name="don_t_have_an_account_register">Belum punya akun? <font color="#36B991"><b>Daftar</b></font></string>
 </resources>

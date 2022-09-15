@@ -26,4 +26,12 @@
         <attr name="appEditTextErrorEnable" format="boolean|reference" />
     </declare-styleable>
 
+    <declare-styleable name="AppDotIndicator">
+        <attr name="appDotIndicatorColor" format="color|reference" />
+        <attr name="appDotIndicatorCount" format="integer" />
+        <attr name="appDotIndicatorSelectedColor" format="color|reference" />
+        <attr name="appDotIndicatorSize" format="dimension|reference" />
+        <attr name="appDotIndicatorSpacing" format="dimension|reference" />
+    </declare-styleable>
+
 </resources>

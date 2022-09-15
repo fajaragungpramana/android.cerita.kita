@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Cerita Kita"
 include ':app'
+include ':common'
+include ':data'
+include ':widget'

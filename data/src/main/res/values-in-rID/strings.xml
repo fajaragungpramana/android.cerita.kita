@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="boarding_image">
+        <item>@drawable/ic_boarding_one</item>
+        <item>@drawable/ic_boarding_two</item>
+    </array>
+    <string-array name="boarding_title">
+        <item>Cerita Inspiratif</item>
+        <item>Buat Cerita</item>
+    </string-array>
+    <string-array name="boarding_description">
+        <item>Banyak cerita yang di bagikan oleh teman-teman kita yang sedang belajar atau yang sudah lulus dari Dicoding Indonesia.</item>
+        <item>Anda bisa membagikan cerita pengalaman anda ke teman-teman selama belajar di Dicoding Indonesia</item>
+    </string-array>
+</resources>

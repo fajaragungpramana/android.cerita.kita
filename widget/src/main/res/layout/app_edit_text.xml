@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/dimen_8"
+        app:cardElevation="0dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:saveEnabled="false"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="1.5dp"
+            app:endIconDrawable="@drawable/ic_clear"
+            app:endIconMode="clear_text"
+            app:errorIconDrawable="@null"
+            app:errorTextAppearance="@style/Text_0">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tie_input"
+                style="@style/BodyRoboto_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:saveEnabled="false"
+                android:scrollbars="horizontal"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mtv_error_input"
+        style="@style/CaptionRoboto_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:textColor="@color/color_primary_red"
+        android:visibility="gone"
+        tools:text="Error Message" />
+
+</LinearLayout>

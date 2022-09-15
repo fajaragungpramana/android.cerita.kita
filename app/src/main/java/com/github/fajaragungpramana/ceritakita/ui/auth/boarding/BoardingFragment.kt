@@ -47,6 +47,7 @@ class BoardingFragment : AppFragment<FragmentBoardingBinding>(), AppObserver {
                         getString(R.string.let_start) else getString(R.string.next)
                 }
             })
+        viewBinding.adiBoarding.viewPager = viewBinding.vpBoarding
     }
 
     override fun onStateObserver() {

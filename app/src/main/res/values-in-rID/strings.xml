@@ -13,4 +13,11 @@
     <string name="password">Kata sandi</string>
     <string name="log_in">Masuk</string>
     <string name="don_t_have_an_account_register">Belum punya akun? <font color="#36B991"><b>Daftar</b></font></string>
+    <string name="just_a_little_more">Tinggal Sedikit Lagi!</string>
+    <string name="hi_new_users_please_complete_the_data_below">Hai pengguna baru, silahkan lengkapi data di bawah ini.</string>
+    <string name="full_name">Nama lengkap</string>
+    <string name="full_name_min_6_character">Nama lengkap min 6 karakter.</string>
+    <string name="confirm_password">Konfirmasi kata sandi</string>
+    <string name="register">Daftar</string>
+    <string name="already_have_an_account_log_in">Sudah punya akun? <font color="#36B991"><b>Masuk</b></font></string>
 </resources>

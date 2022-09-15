@@ -21,6 +21,19 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.github.fajaragungpramana.ceritakita.ui.auth.login.LoginFragment"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.auth.register.RegisterFragment"
+        tools:layout="@layout/fragment_register" />
 
 </navigation>

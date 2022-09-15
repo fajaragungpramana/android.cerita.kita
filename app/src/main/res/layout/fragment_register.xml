@@ -12,21 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:appToolbarNavigationIcon="@drawable/ic_back"
-        app:appToolbarTitle="@string/login_register_come_on" />
+        app:appToolbarTitle="@string/just_a_little_more" />
 
     <com.google.android.material.textview.MaterialTextView
         style="@style/CaptionRoboto_12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_16"
-        android:text="@string/please_enter_your_registered_email_and_password" />
+        android:text="@string/hi_new_users_please_complete_the_data_below" />
+
+    <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
+        android:id="@+id/aet_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_24"
+        app:appEditTextErrorMessage="@string/full_name_min_6_character"
+        app:appEditTextHint="@string/full_name"
+        app:appEditTextInputType="textPassword" />
 
     <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
         android:id="@+id/aet_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_16"
-        android:layout_marginTop="@dimen/dimen_24"
+        android:layout_marginTop="@dimen/dimen_16"
         app:appEditTextErrorMessage="@string/invalid_email_format"
         app:appEditTextHint="@string/email"
         app:appEditTextInputType="textEmailAddress" />
@@ -41,27 +51,37 @@
         app:appEditTextHint="@string/password"
         app:appEditTextInputType="textPassword" />
 
+    <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
+        android:id="@+id/aet_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_16"
+        app:appEditTextErrorMessage="@string/password_min_6_character"
+        app:appEditTextHint="@string/confirm_password"
+        app:appEditTextInputType="textPassword" />
+
     <View
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/mb_login"
+        android:id="@+id/mb_register"
         style="@style/ButtonPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_16"
         android:layout_marginBottom="@dimen/dimen_16"
-        android:text="@string/log_in" />
+        android:text="@string/register" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/mtv_register"
+        android:id="@+id/mtv_login"
         style="@style/CaptionRoboto_12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/don_t_have_an_account_register"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/dimen_16" />
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:text="@string/already_have_an_account_log_in" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

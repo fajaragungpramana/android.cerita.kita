@@ -12,4 +12,11 @@
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="don_t_have_an_account_register">Don\'t have an account? <font color="#36B991"><b>Register</b></font></string>
+    <string name="just_a_little_more">Just a Little More!</string>
+    <string name="hi_new_users_please_complete_the_data_below">Hi new users, please complete the data below.</string>
+    <string name="full_name">Full name</string>
+    <string name="full_name_min_6_character">Full name min 6 character.</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_log_in">Already have an account? <font color="#36B991"><b>Log In</b></font></string>
 </resources>

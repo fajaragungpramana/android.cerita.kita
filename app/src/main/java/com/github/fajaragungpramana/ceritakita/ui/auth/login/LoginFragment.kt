@@ -18,6 +18,10 @@ class LoginFragment : AppFragment<FragmentLoginBinding>() {
 
     override fun onCreated(savedInstanceState: Bundle?) {
         viewBinding.atToolbar.onBackPress { findNavController().navigateUp() }
+        viewBinding.mtvRegister.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+            findNavController().navigate(action)
+        }
     }
 
 }

@@ -10,7 +10,7 @@ import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.data.remote.auth.request.AuthRequest
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentLoginBinding
 import com.github.fajaragungpramana.ceritakita.ui.state.LoginState
-import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
+import com.github.fajaragungpramana.ceritakita.widget.extension.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -23,8 +23,25 @@ class LoginFragment : AppFragment<FragmentLoginBinding>(), AppObserver {
         FragmentLoginBinding.inflate(layoutInflater, container, false)
 
     override fun onCreated(savedInstanceState: Bundle?) {
+        requireActivity().showKeyboard(viewBinding.aetEmail.field)
+
         viewBinding.atToolbar.onBackPress { findNavController().navigateUp() }
-        viewBinding.mbLogin.setOnClickListener { mViewModel.login(AuthRequest(email = "ff", password = "123456")) }
+
+        viewBinding.aetEmail.addTextChangedListener {
+            viewBinding.mbLogin.isEnabled =
+                it.isValidEmail() && viewBinding.aetPassword.text.isValidPassword()
+        }
+        viewBinding.aetPassword.addTextChangedListener {
+            viewBinding.mbLogin.isEnabled =
+                viewBinding.aetEmail.text.isValidEmail() && it.isValidPassword()
+        }
+        viewBinding.mbLogin.setOnClickListener {
+            mViewModel.login(
+                AuthRequest(
+                    email = viewBinding.aetEmail.text, password = viewBinding.aetPassword.text
+                )
+            )
+        }
         viewBinding.mtvRegister.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             findNavController().navigate(action)
@@ -40,6 +57,7 @@ class LoginFragment : AppFragment<FragmentLoginBinding>(), AppObserver {
                     is LoginState.OnLoginSuccess -> {}
                     is LoginState.OnLoginFailure -> {
                         viewBinding.llLogin.snackBar(it.message)
+                        requireActivity().hideKeyboard()
                     }
                 }
             }

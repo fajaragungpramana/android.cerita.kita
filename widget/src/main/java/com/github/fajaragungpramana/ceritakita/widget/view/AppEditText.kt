@@ -16,10 +16,14 @@ import com.github.fajaragungpramana.ceritakita.widget.extension.getApplicationCo
 import com.github.fajaragungpramana.ceritakita.widget.extension.isValidEmail
 import com.github.fajaragungpramana.ceritakita.widget.extension.isValidPassword
 import com.github.fajaragungpramana.ceritakita.widget.extension.visible
+import com.google.android.material.textfield.TextInputEditText
 
 class AppEditText(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
     private var mViewBinding: AppEditTextBinding
+
+    val field: TextInputEditText
+        get() = mViewBinding.tieInput
 
     var hint: String?
         set(value) {

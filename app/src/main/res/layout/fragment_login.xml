@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_16"
         android:layout_marginBottom="@dimen/dimen_16"
+        android:enabled="false"
         android:text="@string/log_in" />
 
     <com.google.android.material.textview.MaterialTextView

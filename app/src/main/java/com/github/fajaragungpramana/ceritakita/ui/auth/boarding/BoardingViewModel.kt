@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.fajaragungpramana.ceritakita.data.domain.boarding.BoardingUseCase
 import com.github.fajaragungpramana.ceritakita.data.extension.flowAsValue
 import com.github.fajaragungpramana.ceritakita.data.extension.onResultListener
+import com.github.fajaragungpramana.ceritakita.ui.state.BoardingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel

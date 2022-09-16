@@ -1,4 +1,4 @@
-package com.github.fajaragungpramana.ceritakita.ui.auth.boarding
+package com.github.fajaragungpramana.ceritakita.ui.state
 
 import com.github.fajaragungpramana.ceritakita.data.local.boarding.model.Boarding
 

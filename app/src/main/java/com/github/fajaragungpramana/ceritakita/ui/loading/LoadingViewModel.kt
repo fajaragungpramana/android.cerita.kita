@@ -34,7 +34,7 @@ class LoadingViewModel @Inject constructor(private val mPreferenceUseCase: Prefe
                     )
                 )
             },
-            onFailure = {
+            onFailure = { _, _ ->
                 _preferenceState.send(PreferenceState.PreferenceFailure(null))
             },
             onError = {

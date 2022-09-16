@@ -30,7 +30,7 @@ class BoardingViewModel @Inject constructor(private val mBoardingUseCase: Boardi
             onSuccess = {
                 _boardingState.send(BoardingState.OnBoardingSuccess(it?.flowAsValue()))
             },
-            onFailure = {
+            onFailure = { _, _ ->
                 _boardingState.send(BoardingState.OnBoardingFailure(null))
             },
             onError = {

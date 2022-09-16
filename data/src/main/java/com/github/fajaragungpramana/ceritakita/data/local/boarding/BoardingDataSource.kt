@@ -30,9 +30,8 @@ class BoardingDataSource @Inject constructor() : IBoardingDataSource {
             listBoardingImage.recycle()
 
             data
-        } else {
+        } else
             throw NullPointerException("Data.context is null.")
-        }
     }
 
 }

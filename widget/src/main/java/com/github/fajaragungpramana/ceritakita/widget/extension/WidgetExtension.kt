@@ -11,10 +11,6 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 
-fun View.visible(isVisible: Boolean) {
-    visibility = if (isVisible) View.VISIBLE else View.GONE
-}
-
 fun View.shown(isShown: Boolean) {
     visibility = if (isShown) View.VISIBLE else View.INVISIBLE
 }

@@ -19,7 +19,12 @@ class AuthRepository @Inject constructor(
     override suspend fun login(authRequest: AuthRequest): AppResult<Flow<Login>?> = connection {
         mAuthDataSource.login(authRequest).responseAsFlow {
             val token = it?.loginResult?.token
-            if (token != null) mPreferenceDataSource.set(PreferenceEntity(token = token))
+            if (token != null) mPreferenceDataSource.set(
+                PreferenceEntity(
+                    isLogin = true,
+                    token = token
+                )
+            )
 
             Login.mapObject(it)
         }

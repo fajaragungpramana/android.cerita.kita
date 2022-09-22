@@ -7,9 +7,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
+import com.github.fajaragungpramana.ceritakita.common.extension.startActivity
 import com.github.fajaragungpramana.ceritakita.data.remote.auth.request.AuthRequest
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentLoginBinding
 import com.github.fajaragungpramana.ceritakita.ui.dialog.AppLoadingDialog
+import com.github.fajaragungpramana.ceritakita.ui.main.MainActivity
 import com.github.fajaragungpramana.ceritakita.ui.state.LoginState
 import com.github.fajaragungpramana.ceritakita.widget.extension.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,7 +62,12 @@ class LoginFragment : AppFragment<FragmentLoginBinding>(), AppObserver {
                         else
                             mAppLoadingDialog.dismiss()
                     }
-                    is LoginState.OnLoginSuccess -> {}
+                    is LoginState.OnLoginSuccess -> {
+                        toast(it.login?.responseMessage)
+
+                        requireActivity().startActivity<MainActivity>()
+                        requireActivity().finish()
+                    }
                     is LoginState.OnLoginFailure -> {
                         viewBinding.llLogin.snackBar(it.message)
                         requireActivity().hideKeyboard()

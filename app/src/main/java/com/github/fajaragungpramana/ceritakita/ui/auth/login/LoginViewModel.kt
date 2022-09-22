@@ -29,7 +29,7 @@ class LoginViewModel @Inject constructor(private val mAuthUseCase: AuthUseCase) 
             onSuccess = {
                 _loginState.send(LoginState.OnLoginLoading(false))
 
-                _loginState.send(LoginState.OnLoginSuccess)
+                _loginState.send(LoginState.OnLoginSuccess(it?.flowAsValue()))
             },
             onFailure = { _, data ->
                 _loginState.send(LoginState.OnLoginLoading(false))

@@ -9,6 +9,7 @@ import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.common.extension.startActivity
 import com.github.fajaragungpramana.ceritakita.databinding.ActivityLoadingBinding
 import com.github.fajaragungpramana.ceritakita.ui.auth.AuthActivity
+import com.github.fajaragungpramana.ceritakita.ui.main.MainActivity
 import com.github.fajaragungpramana.ceritakita.ui.state.PreferenceState
 import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,9 +39,9 @@ class LoadingActivity : AppActivity<ActivityLoadingBinding>(), AppObserver {
                     is PreferenceState.PreferenceSuccess -> {
                         Handler(mainLooper).postDelayed({
 
-                            if (it.preference?.isBoarding == false)
-                                startActivity<AuthActivity>()
-                            else if (it.preference?.isLogin == true && it.preference.token != null)
+                            if (it.preference?.isLogin == true && it.preference.token != null)
+                                startActivity<MainActivity>()
+                            else if (it.preference?.isBoarding == false)
                                 startActivity<AuthActivity>()
                             else
                                 startActivity<AuthActivity>()

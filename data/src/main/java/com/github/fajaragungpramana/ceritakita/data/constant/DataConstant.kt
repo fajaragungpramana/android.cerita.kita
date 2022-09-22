@@ -18,11 +18,17 @@ object DataConstant {
             const val NAME = "name"
             const val EMAIL = "email"
             const val PASSWORD = "password"
+
+            const val PAGE = "name"
+            const val SIZE = "size"
+            const val LOCATION = "location"
         }
 
         object Route {
             const val LOGIN = "login"
             const val REGISTER = "register"
+
+            const val STORIES = "stories"
         }
 
     }

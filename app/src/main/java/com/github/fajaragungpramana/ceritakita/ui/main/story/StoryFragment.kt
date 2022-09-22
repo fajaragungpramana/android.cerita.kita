@@ -31,6 +31,8 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
         mStoryAdapter = StoryAdapter()
         viewBinding.rvStory.layoutManager = LinearLayoutManager(requireActivity())
         viewBinding.rvStory.adapter = mStoryAdapter
+
+        viewBinding.alrStory.setOnRefreshListener { mStoryAdapter.refresh() }
     }
 
     override fun onStateObserver() {

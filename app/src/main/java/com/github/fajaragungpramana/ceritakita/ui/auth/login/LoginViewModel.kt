@@ -2,7 +2,6 @@ package com.github.fajaragungpramana.ceritakita.ui.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.fajaragungpramana.ceritakita.data.app.AppResult
 import com.github.fajaragungpramana.ceritakita.data.domain.auth.AuthUseCase
 import com.github.fajaragungpramana.ceritakita.data.extension.flowAsValue
 import com.github.fajaragungpramana.ceritakita.data.extension.onResultListener

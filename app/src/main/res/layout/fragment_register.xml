@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_primary_variant"
@@ -29,7 +30,7 @@
         android:layout_marginTop="@dimen/dimen_24"
         app:appEditTextErrorMessage="@string/full_name_min_6_character"
         app:appEditTextHint="@string/full_name"
-        app:appEditTextInputType="textPassword" />
+        app:appEditTextInputType="text" />
 
     <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
         android:id="@+id/aet_email"
@@ -51,16 +52,6 @@
         app:appEditTextHint="@string/password"
         app:appEditTextInputType="textPassword" />
 
-    <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
-        android:id="@+id/aet_confirm_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dimen_16"
-        android:layout_marginTop="@dimen/dimen_16"
-        app:appEditTextErrorMessage="@string/password_min_6_character"
-        app:appEditTextHint="@string/confirm_password"
-        app:appEditTextInputType="textPassword" />
-
     <View
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -73,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_16"
         android:layout_marginBottom="@dimen/dimen_16"
+        android:enabled="false"
         android:text="@string/register" />
 
     <com.google.android.material.textview.MaterialTextView

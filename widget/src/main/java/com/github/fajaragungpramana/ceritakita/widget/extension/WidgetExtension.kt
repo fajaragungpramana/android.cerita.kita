@@ -6,9 +6,11 @@ import android.os.Handler
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 
 fun View.shown(isShown: Boolean) {
@@ -17,10 +19,13 @@ fun View.shown(isShown: Boolean) {
 
 fun Context.getApplicationColor(@ColorRes res: Int) = ContextCompat.getColor(this, res)
 
+fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
+    Toast.makeText(requireActivity(), message, duration).show()
+
 fun View.snackBar(message: String?, duration: Int = Snackbar.LENGTH_SHORT) =
     Snackbar.make(this, message ?: "", duration).show()
 
-
+fun String?.isValidName() = (this?.length ?: 0) > 6
 fun String?.isValidEmail() = Patterns.EMAIL_ADDRESS.matcher(this ?: "").matches()
 fun String?.isValidPassword() = (this?.length ?: 0) > 6
 

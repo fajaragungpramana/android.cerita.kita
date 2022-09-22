@@ -9,6 +9,7 @@ import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.data.remote.auth.request.AuthRequest
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentLoginBinding
+import com.github.fajaragungpramana.ceritakita.ui.dialog.AppLoadingDialog
 import com.github.fajaragungpramana.ceritakita.ui.state.LoginState
 import com.github.fajaragungpramana.ceritakita.widget.extension.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,12 +20,12 @@ class LoginFragment : AppFragment<FragmentLoginBinding>(), AppObserver {
 
     private val mViewModel: LoginViewModel by viewModels()
 
+    private val mAppLoadingDialog by lazy { AppLoadingDialog(childFragmentManager) }
+
     override fun onViewBinding(container: ViewGroup?) =
         FragmentLoginBinding.inflate(layoutInflater, container, false)
 
     override fun onCreated(savedInstanceState: Bundle?) {
-        requireActivity().showKeyboard(viewBinding.aetEmail.field)
-
         viewBinding.atToolbar.onBackPress { findNavController().navigateUp() }
 
         viewBinding.aetEmail.addTextChangedListener {
@@ -53,7 +54,12 @@ class LoginFragment : AppFragment<FragmentLoginBinding>(), AppObserver {
 
             mViewModel.loginState.collectLatest {
                 when (it) {
-                    is LoginState.OnLoginLoading -> {}
+                    is LoginState.OnLoginLoading -> {
+                        if (it.isLoading == true)
+                            mAppLoadingDialog.showDialog(this@LoginFragment::class.java.simpleName)
+                        else
+                            mAppLoadingDialog.dismiss()
+                    }
                     is LoginState.OnLoginSuccess -> {}
                     is LoginState.OnLoginFailure -> {
                         viewBinding.llLogin.snackBar(it.message)

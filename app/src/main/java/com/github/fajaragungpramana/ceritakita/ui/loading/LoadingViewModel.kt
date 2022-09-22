@@ -23,10 +23,12 @@ class LoadingViewModel @Inject constructor(private val mPreferenceUseCase: Prefe
         get() = _preferenceState.receiveAsFlow()
 
     override fun getPreference(): Job = viewModelScope.launch {
+        _preferenceState.send(PreferenceState.PreferenceLoading(true))
+
         mPreferenceUseCase.get().onResultListener(
-            onLoading = {
-                _preferenceState.send(PreferenceState.PreferenceLoading(it)) },
             onSuccess = {
+                _preferenceState.send(PreferenceState.PreferenceLoading(false))
+
                 _preferenceState.send(
                     PreferenceState.PreferenceSuccess(
                         isInsert = false,
@@ -35,9 +37,13 @@ class LoadingViewModel @Inject constructor(private val mPreferenceUseCase: Prefe
                 )
             },
             onFailure = { _, _ ->
+                _preferenceState.send(PreferenceState.PreferenceLoading(false))
+
                 _preferenceState.send(PreferenceState.PreferenceFailure(null))
             },
             onError = {
+                _preferenceState.send(PreferenceState.PreferenceLoading(false))
+
                 _preferenceState.send(PreferenceState.PreferenceFailure(it.message))
             }
         )

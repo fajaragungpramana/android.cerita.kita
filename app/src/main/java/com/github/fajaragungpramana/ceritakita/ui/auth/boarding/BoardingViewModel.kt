@@ -23,17 +23,22 @@ class BoardingViewModel @Inject constructor(private val mBoardingUseCase: Boardi
         get() = _boardingState.receiveAsFlow()
 
     override fun getListBoarding(): Job = viewModelScope.launch {
+        _boardingState.send(BoardingState.OnBoardingLoading(true))
+
         mBoardingUseCase.getListBoarding().onResultListener(
-            onLoading = {
-                _boardingState.send(BoardingState.OnBoardingLoading(it))
-            },
             onSuccess = {
+                _boardingState.send(BoardingState.OnBoardingLoading(false))
+
                 _boardingState.send(BoardingState.OnBoardingSuccess(it?.flowAsValue()))
             },
             onFailure = { _, _ ->
+                _boardingState.send(BoardingState.OnBoardingLoading(false))
+
                 _boardingState.send(BoardingState.OnBoardingFailure(null))
             },
             onError = {
+                _boardingState.send(BoardingState.OnBoardingLoading(false))
+
                 _boardingState.send(BoardingState.OnBoardingFailure(it.message))
             }
         )

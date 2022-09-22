@@ -2,6 +2,7 @@ package com.github.fajaragungpramana.ceritakita.ui.auth.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.fajaragungpramana.ceritakita.data.app.AppResult
 import com.github.fajaragungpramana.ceritakita.data.domain.auth.AuthUseCase
 import com.github.fajaragungpramana.ceritakita.data.extension.flowAsValue
 import com.github.fajaragungpramana.ceritakita.data.extension.onResultListener
@@ -24,17 +25,21 @@ class LoginViewModel @Inject constructor(private val mAuthUseCase: AuthUseCase) 
         get() = _loginState.receiveAsFlow()
 
     override fun login(authRequest: AuthRequest): Job = viewModelScope.launch {
+        _loginState.send(LoginState.OnLoginLoading(true))
         mAuthUseCase.login(authRequest).onResultListener(
-            onLoading = {
-                _loginState.send(LoginState.OnLoginLoading(it))
-            },
             onSuccess = {
+                _loginState.send(LoginState.OnLoginLoading(false))
+
                 _loginState.send(LoginState.OnLoginSuccess)
             },
             onFailure = { _, data ->
+                _loginState.send(LoginState.OnLoginLoading(false))
+
                 _loginState.send(LoginState.OnLoginFailure(data?.flowAsValue()?.responseMessage))
             },
             onError = {
+                _loginState.send(LoginState.OnLoginLoading(false))
+
                 _loginState.send(LoginState.OnLoginFailure(it.message))
             }
         )

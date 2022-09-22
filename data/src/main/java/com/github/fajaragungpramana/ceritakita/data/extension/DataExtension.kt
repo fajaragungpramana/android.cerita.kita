@@ -12,23 +12,18 @@ import kotlinx.coroutines.flow.flowOn
 import retrofit2.Response
 
 inline fun <T> AppResult<T>.onResultListener(
-    onLoading: (Boolean) -> Unit,
     onSuccess: (T?) -> Unit,
     onFailure: (Int?, T?) -> Unit,
     onError: (Throwable) -> Unit
 ) {
-    onLoading(true)
     when (this) {
         is AppResult.OnSuccess -> {
-            onLoading(false)
             onSuccess(this.data)
         }
         is AppResult.OnFailure -> {
-            onLoading(false)
             onFailure(this.code, this.data)
         }
         is AppResult.OnError -> {
-            onLoading(false)
             onError(this.throwable)
         }
     }

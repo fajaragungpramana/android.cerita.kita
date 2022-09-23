@@ -19,7 +19,7 @@ object DataConstant {
             const val EMAIL = "email"
             const val PASSWORD = "password"
 
-            const val PAGE = "name"
+            const val PAGE = "page"
             const val SIZE = "size"
             const val LOCATION = "location"
         }

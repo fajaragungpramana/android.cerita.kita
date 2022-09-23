@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_primary_variant"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.github.fajaragungpramana.ceritakita.widget.view.AppToolbar
+        android:id="@+id/at_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:appToolbarNavigationIcon="@drawable/ic_back"
+        app:appToolbarTitle="@string/share_story" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/aiv_image"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@color/color_primary_white"
+        android:scaleType="center"
+        android:src="@drawable/ic_camera"
+        app:tint="@color/color_primary_variant" />
+
+    <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
+        android:id="@+id/aet_story"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginTop="@dimen/dimen_16"
+        app:appEditTextErrorMessage="@string/story_should_not_be_empty"
+        app:appEditTextHint="@string/your_story"
+        app:appEditTextInputType="textMultiLine" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mb_share"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:enabled="false"
+        android:text="@string/share" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

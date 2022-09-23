@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.AbsListView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
@@ -58,6 +59,11 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
             }
 
         })
+
+        viewBinding.fabAddStory.setOnClickListener {
+            val action = StoryFragmentDirections.actionStoryFragmentToAddStoryFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onStateObserver() {

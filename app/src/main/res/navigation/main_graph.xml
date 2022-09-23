@@ -8,6 +8,19 @@
     <fragment
         android:id="@+id/storyFragment"
         android:name="com.github.fajaragungpramana.ceritakita.ui.main.story.StoryFragment"
-        tools:layout="@layout/fragment_story" />
+        tools:layout="@layout/fragment_story">
+        <action
+            android:id="@+id/action_storyFragment_to_addStoryFragment"
+            app:destination="@id/addStoryFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addStoryFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.main.story.add.AddStoryFragment"
+        tools:layout="@layout/fragment_story_add" />
 
 </navigation>

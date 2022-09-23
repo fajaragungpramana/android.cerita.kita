@@ -3,6 +3,7 @@ package com.github.fajaragungpramana.ceritakita.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.load
 import com.github.fajaragungpramana.ceritakita.common.app.AppPagingRecyclerViewAdapter
 import com.github.fajaragungpramana.ceritakita.common.app.AppRecyclerViewHolder
 import com.github.fajaragungpramana.ceritakita.data.remote.story.model.Story
@@ -19,7 +20,9 @@ class StoryAdapter :
     inner class ViewHolder(view: View) : AppRecyclerViewHolder<Story>(view) {
 
         override fun bindItem(item: Story, position: Int) {
-
+            viewBinding.aivImage.load(item.image)
+            viewBinding.mtvDescription.text = item.description
+            viewBinding.mtvName.text = item.userName
         }
 
     }

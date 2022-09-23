@@ -10,14 +10,16 @@ import com.github.fajaragungpramana.ceritakita.data.remote.story.request.StoryRe
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class StoryRepository @Inject constructor(private val mStoryDataSource: StoryDataSource) :
+class StoryRepository @Inject constructor(private val mStoryDataSource: IStoryDataSource) :
     IStoryRepository {
 
     override suspend fun getStories(storyRequest: StoryRequest): AppResult<Flow<PagingData<Story>>> =
         connection {
-            mStoryDataSource.init(storyRequest)
-
-            AppResult.OnSuccess(Pager(PagingConfig(pageSize = storyRequest.size)) { mStoryDataSource }.flow)
+            AppResult.OnSuccess(
+                Pager(PagingConfig(pageSize = storyRequest.size)) {
+                    StoryDataSource(mStoryDataSource).apply { init(storyRequest) }
+                }.flow
+            )
         }
 
 }

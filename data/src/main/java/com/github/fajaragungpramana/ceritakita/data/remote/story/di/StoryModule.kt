@@ -25,7 +25,7 @@ object StoryModule {
         StoryDataSource(storyDataSource)
 
     @Provides
-    fun provideStoryRepository(storyDataSource: StoryDataSource): IStoryRepository =
+    fun provideStoryRepository(storyDataSource: IStoryDataSource): IStoryRepository =
         StoryRepository(storyDataSource)
 
     @Provides

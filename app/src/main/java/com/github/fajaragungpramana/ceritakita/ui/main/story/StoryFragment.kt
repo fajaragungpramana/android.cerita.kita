@@ -43,10 +43,12 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
                     is StoryState.OnStoryLoading -> {}
 
                     is StoryState.OnStorySuccess -> {
+                        viewBinding.alrStory.isRefreshing = false
                         mStoryAdapter.submitData(it.data)
                     }
 
                     is StoryState.OnStoryFailure -> {
+                        viewBinding.alrStory.isRefreshing = false
                         viewBinding.llStory.snackBar(it.message)
                     }
                 }

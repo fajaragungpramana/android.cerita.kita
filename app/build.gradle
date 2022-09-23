@@ -50,6 +50,9 @@ dependencies {
     implementation project(":data")
     implementation project(":widget")
 
+    implementation "androidx.activity:activity:1.4.0"
+    implementation "androidx.fragment:fragment:1.4.0"
+
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
 

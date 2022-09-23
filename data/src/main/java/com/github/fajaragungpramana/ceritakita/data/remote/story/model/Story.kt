@@ -6,6 +6,7 @@ import com.github.fajaragungpramana.ceritakita.data.remote.story.entity.StoryEnt
 data class Story(
 
     val id: String? = null,
+    val responseMessage: String? = null,
     val image: String? = null,
     val description: String? = null,
     val userImage: String? = null,
@@ -42,5 +43,9 @@ data class Story(
 
             return data
         }
+
+        fun mapObject(storyEntity: StoryEntity?) = Story(
+            responseMessage = storyEntity?.message
+        )
     }
 }

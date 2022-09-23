@@ -6,6 +6,7 @@ import com.github.fajaragungpramana.ceritakita.data.remote.story.IStoryRepositor
 import com.github.fajaragungpramana.ceritakita.data.remote.story.model.Story
 import com.github.fajaragungpramana.ceritakita.data.remote.story.request.StoryRequest
 import kotlinx.coroutines.flow.Flow
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class StoryInteractor @Inject constructor(private val mStoryRepository: IStoryRepository) :
@@ -13,5 +14,8 @@ class StoryInteractor @Inject constructor(private val mStoryRepository: IStoryRe
 
     override suspend fun getStories(storyRequest: StoryRequest): AppResult<Flow<PagingData<Story>>> =
         mStoryRepository.getStories(storyRequest)
+
+    override suspend fun setStories(requestBody: RequestBody): AppResult<Flow<Story>?> =
+        mStoryRepository.setStories(requestBody)
 
 }

@@ -22,6 +22,8 @@ object DataConstant {
             const val PAGE = "page"
             const val SIZE = "size"
             const val LOCATION = "location"
+            const val PHOTO = "photo"
+            const val DESCRIPTION = "description"
         }
 
         object Route {

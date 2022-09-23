@@ -24,4 +24,7 @@
     <string name="your_story">Your Story</string>
     <string name="story_should_not_be_empty">Story should not be empty.</string>
     <string name="share">Share</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

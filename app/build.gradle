@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -21,6 +23,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            resValue("string", "app_name", "Cerita Kita")
+        }
+        debug {
+            applicationIdSuffix ".debug"
+
+            resValue("string", "app_name", "Cerita Kita (Debug)")
         }
     }
     buildFeatures {
@@ -41,4 +50,16 @@ dependencies {
     implementation project(":data")
     implementation project(":widget")
 
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
+
+    implementation "io.coil-kt:coil:2.2.1"
+
+    implementation 'com.google.dagger:hilt-android:2.43.2'
+    kapt 'com.google.dagger:hilt-compiler:2.43.2'
+
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_story"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_primary_variant"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.github.fajaragungpramana.ceritakita.widget.view.AppToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:elevation="@dimen/dimen_0"
+        app:appToolbarTitle="@string/application_name" />
+
+    <com.github.fajaragungpramana.ceritakita.widget.view.AppLottieRefreshLayout
+        android:id="@+id/alr_story"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:appLottieRefreshLayoutLottieRawRes="@raw/lottie_refresh"
+        app:appRefreshLayoutIndicatorOverlay="false"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_story"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/adapter_story" />
+
+    </com.github.fajaragungpramana.ceritakita.widget.view.AppLottieRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:src="@drawable/ic_add"
+        app:tint="@color/color_primary_white"
+        tools:ignore="ContentDescription" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

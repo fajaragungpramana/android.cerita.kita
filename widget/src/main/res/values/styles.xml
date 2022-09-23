@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text_0">
+        <item name="android:textSize">@dimen/text_0</item>
+    </style>
+
+    <style name="HeadingUbuntu_20">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/color_primary_black</item>
+        <item name="android:textSize">@dimen/text_20</item>
+    </style>
+
+    <style name="HeadingUbuntu_24">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/color_primary_black</item>
+        <item name="android:textSize">@dimen/text_24</item>
+    </style>
+
+    <style name="BodyUbuntu_14">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/color_primary_gray</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
+
+    <style name="BodyRoboto_14">
+        <item name="android:textColor">@color/color_primary_gray</item>
+        <item name="android:textSize">@dimen/text_14</item>
+    </style>
+
+    <style name="CaptionRoboto_12">
+        <item name="android:textColor">@color/color_primary_gray</item>
+        <item name="android:textSize">@dimen/text_12</item>
+    </style>
+
+    <style name="ButtonRounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/dimen_8</item>
+    </style>
+
+    <style name="ButtonPrimary" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textAppearance">@style/BodyUbuntu_14</item>
+        <item name="backgroundTint">@color/btn_primary</item>
+        <item name="shapeAppearance">@style/ButtonRounded</item>
+        <item name="android:insetTop">@dimen/dimen_0</item>
+        <item name="android:textColor">@color/color_primary_white</item>
+        <item name="android:insetBottom">@dimen/dimen_0</item>
+        <item name="android:insetRight">@dimen/dimen_0</item>
+        <item name="android:insetLeft">@dimen/dimen_0</item>
+        <item name="minHeight">@dimen/dimen_48</item>
+    </style>
+
+</resources>

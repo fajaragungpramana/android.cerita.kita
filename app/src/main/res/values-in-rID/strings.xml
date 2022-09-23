@@ -20,4 +20,5 @@
     <string name="confirm_password">Konfirmasi kata sandi</string>
     <string name="register">Daftar</string>
     <string name="already_have_an_account_log_in">Sudah punya akun? <font color="#36B991"><b>Masuk</b></font></string>
+    <string name="an_unknown_error_occurred">Terjadi kesalahan yang tidak di ketahui.</string>
 </resources>

@@ -9,6 +9,7 @@ import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.data.remote.story.request.StoryRequest
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentStoryBinding
+import com.github.fajaragungpramana.ceritakita.ui.adapter.LoadStateAdapter
 import com.github.fajaragungpramana.ceritakita.ui.adapter.StoryAdapter
 import com.github.fajaragungpramana.ceritakita.ui.state.StoryState
 import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
@@ -30,7 +31,7 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
 
         mStoryAdapter = StoryAdapter()
         viewBinding.rvStory.layoutManager = LinearLayoutManager(requireActivity())
-        viewBinding.rvStory.adapter = mStoryAdapter
+        viewBinding.rvStory.adapter = mStoryAdapter.withLoadStateFooter(LoadStateAdapter())
 
         viewBinding.alrStory.setOnRefreshListener { mStoryAdapter.refresh() }
     }

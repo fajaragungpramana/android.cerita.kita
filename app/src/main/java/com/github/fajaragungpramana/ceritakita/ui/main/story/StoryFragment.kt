@@ -1,10 +1,13 @@
 package com.github.fajaragungpramana.ceritakita.ui.main.story
 
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
+import android.widget.AbsListView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.data.remote.story.request.StoryRequest
@@ -34,6 +37,27 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
         viewBinding.rvStory.adapter = mStoryAdapter.withLoadStateFooter(LoadStateAdapter())
 
         viewBinding.alrStory.setOnRefreshListener { mStoryAdapter.refresh() }
+
+        viewBinding.rvStory.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE)
+                    viewBinding.fabAddStory.animate()
+                        .alpha(1f)
+                        .translationY(0f)
+                        .setStartDelay(300)
+                        .start()
+                else
+                    viewBinding.fabAddStory.animate()
+                        .alpha(0f)
+                        .translationY(300f)
+                        .setStartDelay(300)
+                        .start()
+            }
+
+        })
     }
 
     override fun onStateObserver() {

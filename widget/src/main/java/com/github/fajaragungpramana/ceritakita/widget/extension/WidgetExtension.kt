@@ -25,6 +25,17 @@ fun Fragment.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) =
 fun View.snackBar(message: String?, duration: Int = Snackbar.LENGTH_SHORT) =
     Snackbar.make(this, message ?: "", duration).show()
 
+inline fun View.snackBar(
+    message: String?,
+    actionMessage: String?,
+    crossinline actionListener: (View) -> Unit,
+    duration: Int = Snackbar.LENGTH_SHORT
+) {
+    Snackbar.make(this, message ?: "", duration)
+        .setAction(actionMessage) { actionListener.invoke(it) }
+        .show()
+}
+
 fun String?.isValidName() = (this?.length ?: 0) > 6
 fun String?.isValidEmail() = Patterns.EMAIL_ADDRESS.matcher(this ?: "").matches()
 fun String?.isValidPassword() = (this?.length ?: 0) > 6

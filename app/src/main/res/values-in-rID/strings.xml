@@ -28,4 +28,7 @@
     <string name="choose_image">Pilih Foto</string>
     <string name="camera">Kamera</string>
     <string name="gallery">Galeri</string>
+    <string name="need_access_camera">Perlu akses kamera</string>
+    <string name="oke">Oke</string>
+    <string name="need_access_storage">Perlu akses penyimpanan</string>
 </resources>

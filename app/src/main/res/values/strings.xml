@@ -27,4 +27,7 @@
     <string name="choose_image">Choose Image</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
+    <string name="need_access_camera">Need access camera</string>
+    <string name="oke">Oke</string>
+    <string name="need_access_storage">Need access storage</string>
 </resources>

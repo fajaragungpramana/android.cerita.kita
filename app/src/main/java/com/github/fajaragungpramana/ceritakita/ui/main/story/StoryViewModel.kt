@@ -2,6 +2,7 @@ package com.github.fajaragungpramana.ceritakita.ui.main.story
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.fajaragungpramana.ceritakita.data.domain.preference.PreferenceUseCase
 import com.github.fajaragungpramana.ceritakita.data.domain.story.StoryUseCase
 import com.github.fajaragungpramana.ceritakita.data.extension.onResultListener
 import com.github.fajaragungpramana.ceritakita.data.remote.story.request.StoryRequest
@@ -16,8 +17,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class StoryViewModel @Inject constructor(private val mStoryUseCase: StoryUseCase) : ViewModel(),
-    IStoryEvent {
+class StoryViewModel @Inject constructor(
+    private val mStoryUseCase: StoryUseCase,
+    private val mPreferenceUseCase: PreferenceUseCase
+) : ViewModel(), IStoryEvent {
 
     private val _storyState by lazy { Channel<StoryState>() }
     val storyState: Flow<StoryState>
@@ -34,6 +37,10 @@ class StoryViewModel @Inject constructor(private val mStoryUseCase: StoryUseCase
                 _storyState.send(StoryState.OnStoryFailure(it.message))
             }
         )
+    }
+
+    override fun logout(): Job = viewModelScope.launch {
+        mPreferenceUseCase.clear()
     }
 
 }

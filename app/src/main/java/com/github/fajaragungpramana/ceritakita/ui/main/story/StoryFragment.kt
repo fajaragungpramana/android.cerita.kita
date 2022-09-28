@@ -1,7 +1,6 @@
 package com.github.fajaragungpramana.ceritakita.ui.main.story
 
 import android.os.Bundle
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.AbsListView
 import androidx.fragment.app.viewModels
@@ -9,14 +8,18 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.fajaragungpramana.ceritakita.R
 import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
+import com.github.fajaragungpramana.ceritakita.common.extension.startActivity
 import com.github.fajaragungpramana.ceritakita.data.remote.story.request.StoryRequest
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentStoryBinding
 import com.github.fajaragungpramana.ceritakita.ui.adapter.LoadStateAdapter
 import com.github.fajaragungpramana.ceritakita.ui.adapter.StoryAdapter
+import com.github.fajaragungpramana.ceritakita.ui.loading.LoadingActivity
 import com.github.fajaragungpramana.ceritakita.ui.state.StoryState
 import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
+import com.github.fajaragungpramana.ceritakita.widget.extension.toast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -32,6 +35,14 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
 
     override fun onCreated(savedInstanceState: Bundle?) {
         mViewModel.getStories(StoryRequest())
+
+        viewBinding.atToolbar.onBackPress {
+            mViewModel.logout()
+            toast(getString(R.string.logout))
+
+            requireActivity().startActivity<LoadingActivity>()
+            requireActivity().finishAffinity()
+        }
 
         mStoryAdapter = StoryAdapter {
             val action = StoryFragmentDirections.actionStoryFragmentToDetailStoryFragment(it)

@@ -10,4 +10,6 @@ interface PreferenceUseCase {
 
     suspend fun get(): AppResult<Flow<Preference>?>
 
+    suspend fun clear()
+
 }

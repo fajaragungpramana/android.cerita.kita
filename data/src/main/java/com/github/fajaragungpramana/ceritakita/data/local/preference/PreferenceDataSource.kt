@@ -22,4 +22,6 @@ class PreferenceDataSource @Inject constructor(private val mSharedPreference: Sh
         token = mSharedPreference.getString(PreferenceEntity.TOKEN, null)
     )
 
+    override fun clear() = mSharedPreference.edit().clear().apply()
+
 }

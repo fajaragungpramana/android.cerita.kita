@@ -7,4 +7,6 @@ interface IStoryEvent {
 
     fun getStories(storyRequest: StoryRequest): Job
 
+    fun logout(): Job
+
 }

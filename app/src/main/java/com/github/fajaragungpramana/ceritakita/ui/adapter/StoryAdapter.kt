@@ -9,7 +9,7 @@ import com.github.fajaragungpramana.ceritakita.common.app.AppRecyclerViewHolder
 import com.github.fajaragungpramana.ceritakita.data.remote.story.model.Story
 import com.github.fajaragungpramana.ceritakita.databinding.AdapterStoryBinding
 
-class StoryAdapter :
+class StoryAdapter(private val mClickListener: (Story) -> Unit) :
     AppPagingRecyclerViewAdapter<AdapterStoryBinding, Story, StoryAdapter.ViewHolder>(Story.diffUtil) {
 
     override fun onViewBinding(viewGroup: ViewGroup) =
@@ -23,6 +23,8 @@ class StoryAdapter :
             viewBinding.aivImage.load(item.image)
             viewBinding.mtvDescription.text = item.description
             viewBinding.mtvName.text = item.userName
+
+            viewBinding.root.setOnClickListener { mClickListener.invoke(item) }
         }
 
     }

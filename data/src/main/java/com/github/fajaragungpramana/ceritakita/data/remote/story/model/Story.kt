@@ -1,8 +1,11 @@
 package com.github.fajaragungpramana.ceritakita.data.remote.story.model
 
+import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
 import com.github.fajaragungpramana.ceritakita.data.remote.story.entity.StoryEntity
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Story(
 
     val id: String? = null,
@@ -13,8 +16,10 @@ data class Story(
     val userName: String? = null,
     val date: String? = null
 
-) {
+) : Parcelable {
     companion object {
+
+        const val INTENT_KEY = "intent.key.story"
 
         val diffUtil = object : DiffUtil.ItemCallback<Story>() {
 

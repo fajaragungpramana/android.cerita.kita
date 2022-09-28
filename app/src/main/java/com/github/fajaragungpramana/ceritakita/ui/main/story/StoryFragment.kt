@@ -33,7 +33,10 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
     override fun onCreated(savedInstanceState: Bundle?) {
         mViewModel.getStories(StoryRequest())
 
-        mStoryAdapter = StoryAdapter()
+        mStoryAdapter = StoryAdapter {
+            val action = StoryFragmentDirections.actionStoryFragmentToDetailStoryFragment(it)
+            findNavController().navigate(action)
+        }
         viewBinding.rvStory.layoutManager = LinearLayoutManager(requireActivity())
         viewBinding.rvStory.adapter = mStoryAdapter.withLoadStateFooter(LoadStateAdapter())
 

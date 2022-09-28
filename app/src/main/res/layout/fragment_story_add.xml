@@ -18,11 +18,10 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/aiv_image"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="200dp"
         android:background="@color/color_primary_white"
-        android:scaleType="center"
-        android:src="@drawable/ic_camera"
-        app:tint="@color/color_primary_variant" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_camera" />
 
     <com.github.fajaragungpramana.ceritakita.widget.view.AppEditText
         android:id="@+id/aet_story"

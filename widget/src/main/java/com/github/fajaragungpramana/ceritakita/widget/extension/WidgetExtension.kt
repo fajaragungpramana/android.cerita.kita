@@ -38,7 +38,7 @@ inline fun View.snackBar(
 
 fun String?.isValidName() = (this?.length ?: 0) > 6
 fun String?.isValidEmail() = Patterns.EMAIL_ADDRESS.matcher(this ?: "").matches()
-fun String?.isValidPassword() = (this?.length ?: 0) > 6
+fun String?.isValidPassword() = (this?.length ?: 0) >= 6
 
 fun Activity?.hideKeyboard() {
     if (this == null && this?.currentFocus == null)

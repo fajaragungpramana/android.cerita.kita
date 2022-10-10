@@ -10,4 +10,6 @@ interface IPreferenceRepository {
 
     suspend fun get(): AppResult<Flow<Preference>?>
 
+    suspend fun clear()
+
 }

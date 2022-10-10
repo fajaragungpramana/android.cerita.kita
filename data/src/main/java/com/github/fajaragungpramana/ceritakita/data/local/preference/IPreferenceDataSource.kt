@@ -9,4 +9,6 @@ interface IPreferenceDataSource {
 
     fun get(): PreferenceEntity
 
+    fun clear()
+
 }

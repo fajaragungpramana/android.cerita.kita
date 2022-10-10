@@ -283,7 +283,7 @@ open class AppRefreshLayout @JvmOverloads constructor(
                 positionChildren(triggerOffset * animatedValue as Float)
             }
             addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
+                override fun onAnimationEnd(animation: Animator) {
                     offsetY = triggerOffset
                 }
             })
@@ -313,7 +313,7 @@ open class AppRefreshLayout @JvmOverloads constructor(
                 positionChildren(triggerOffset + rollBackOffset * animatedValue as Float)
             }
             addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
+                override fun onAnimationEnd(animation: Animator) {
                     if (notify && triggerOffset != 0 && currentState == State.ROLLING) {
                         currentState = State.TRIGGERING
                         isRefreshing = true

@@ -15,4 +15,6 @@ class PreferenceInteractor @Inject constructor(private val mPreferenceRepository
     override suspend fun get(): AppResult<Flow<Preference>?> =
         mPreferenceRepository.get()
 
+    override suspend fun clear() = mPreferenceRepository.clear()
+
 }

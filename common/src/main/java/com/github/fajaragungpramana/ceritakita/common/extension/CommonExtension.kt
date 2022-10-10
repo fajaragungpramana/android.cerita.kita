@@ -2,8 +2,10 @@ package com.github.fajaragungpramana.ceritakita.common.extension
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
+import android.provider.Settings
 
 inline fun <reified T> Context.startActivity(vararg data: Pair<String, Any>) {
     val i = Intent(this, T::class.java)
@@ -32,6 +34,14 @@ inline fun <reified T> Context.startActivity(vararg data: Pair<String, Any>) {
             else -> throw TypeCastException("Can't passing data type ${it.second.javaClass.name}")
         }
     }
+
+    startActivity(i)
+}
+
+fun Context.openDeviceSettings() {
+    val i = Intent()
+    i.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+    i.data = Uri.fromParts("package", this.packageName, null)
 
     startActivity(i)
 }

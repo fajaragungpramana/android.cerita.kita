@@ -10,10 +10,12 @@
     android:orientation="vertical">
 
     <com.github.fajaragungpramana.ceritakita.widget.view.AppToolbar
+        android:id="@+id/at_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:elevation="@dimen/dimen_0"
+        app:appToolbarNavigationIcon="@drawable/ic_back"
         app:appToolbarTitle="@string/application_name" />
 
     <com.github.fajaragungpramana.ceritakita.widget.view.AppLottieRefreshLayout

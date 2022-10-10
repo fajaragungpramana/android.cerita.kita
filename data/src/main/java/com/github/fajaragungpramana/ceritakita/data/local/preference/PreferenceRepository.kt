@@ -25,4 +25,6 @@ class PreferenceRepository @Inject constructor(private val mAuthPreferenceDataSo
         }.flowOn(Dispatchers.IO))
     }
 
+    override suspend fun clear() = mAuthPreferenceDataSource.clear()
+
 }

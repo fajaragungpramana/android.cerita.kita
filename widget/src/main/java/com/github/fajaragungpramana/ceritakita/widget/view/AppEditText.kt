@@ -15,11 +15,14 @@ import com.github.fajaragungpramana.ceritakita.widget.databinding.AppEditTextBin
 import com.github.fajaragungpramana.ceritakita.widget.extension.getApplicationColor
 import com.github.fajaragungpramana.ceritakita.widget.extension.isValidEmail
 import com.github.fajaragungpramana.ceritakita.widget.extension.isValidPassword
-import com.github.fajaragungpramana.ceritakita.widget.extension.visible
+import com.google.android.material.textfield.TextInputEditText
 
 class AppEditText(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
     private var mViewBinding: AppEditTextBinding
+
+    val field: TextInputEditText
+        get() = mViewBinding.tieInput
 
     var hint: String?
         set(value) {
@@ -75,7 +78,7 @@ class AppEditText(context: Context, attrs: AttributeSet?) : FrameLayout(context,
             val color =
                 context.getApplicationColor(if (isError) R.color.color_primary_red else R.color.color_primary)
 
-            mViewBinding.mtvErrorInput.visible(isError)
+            mViewBinding.mtvErrorInput.isVisible = isError
 
             mViewBinding.tilInput.hintTextColor = ColorStateList.valueOf(color)
             mViewBinding.tilInput.boxStrokeColor = color

@@ -11,6 +11,7 @@ import com.github.fajaragungpramana.ceritakita.common.app.AppFragment
 import com.github.fajaragungpramana.ceritakita.common.contract.AppObserver
 import com.github.fajaragungpramana.ceritakita.databinding.FragmentBoardingBinding
 import com.github.fajaragungpramana.ceritakita.ui.adapter.BoardingAdapter
+import com.github.fajaragungpramana.ceritakita.ui.state.BoardingState
 import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

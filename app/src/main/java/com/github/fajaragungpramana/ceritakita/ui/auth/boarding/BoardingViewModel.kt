@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.fajaragungpramana.ceritakita.data.domain.boarding.BoardingUseCase
 import com.github.fajaragungpramana.ceritakita.data.extension.flowAsValue
 import com.github.fajaragungpramana.ceritakita.data.extension.onResultListener
+import com.github.fajaragungpramana.ceritakita.ui.state.BoardingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -22,17 +23,22 @@ class BoardingViewModel @Inject constructor(private val mBoardingUseCase: Boardi
         get() = _boardingState.receiveAsFlow()
 
     override fun getListBoarding(): Job = viewModelScope.launch {
+        _boardingState.send(BoardingState.OnBoardingLoading(true))
+
         mBoardingUseCase.getListBoarding().onResultListener(
-            onLoading = {
-                _boardingState.send(BoardingState.OnBoardingLoading(it))
-            },
             onSuccess = {
+                _boardingState.send(BoardingState.OnBoardingLoading(false))
+
                 _boardingState.send(BoardingState.OnBoardingSuccess(it?.flowAsValue()))
             },
-            onFailure = {
+            onFailure = { _, _ ->
+                _boardingState.send(BoardingState.OnBoardingLoading(false))
+
                 _boardingState.send(BoardingState.OnBoardingFailure(null))
             },
             onError = {
+                _boardingState.send(BoardingState.OnBoardingLoading(false))
+
                 _boardingState.send(BoardingState.OnBoardingFailure(it.message))
             }
         )

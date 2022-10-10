@@ -1,9 +1,9 @@
-package com.github.fajaragungpramana.ceritakita.ui.auth.boarding
+package com.github.fajaragungpramana.ceritakita.ui.state
 
 import com.github.fajaragungpramana.ceritakita.data.local.boarding.model.Boarding
 
 sealed class BoardingState {
-    data class OnBoardingLoading(val isLoading: Boolean) : BoardingState()
+    data class OnBoardingLoading(val isLoading: Boolean?) : BoardingState()
     data class OnBoardingSuccess(val listBoarding: List<Boarding>?) : BoardingState()
     data class OnBoardingFailure(val message: String?) : BoardingState()
 }

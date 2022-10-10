@@ -20,4 +20,16 @@
     <string name="confirm_password">Konfirmasi kata sandi</string>
     <string name="register">Daftar</string>
     <string name="already_have_an_account_log_in">Sudah punya akun? <font color="#36B991"><b>Masuk</b></font></string>
+    <string name="an_unknown_error_occurred">Terjadi kesalahan yang tidak di ketahui.</string>
+    <string name="share_story">Bagikan Cerita</string>
+    <string name="your_story">Cerita Anda</string>
+    <string name="story_should_not_be_empty">Cerita tidak boleh kosong.</string>
+    <string name="share">Bagikan</string>
+    <string name="choose_image">Pilih Foto</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="need_access_camera">Perlu akses kamera</string>
+    <string name="oke">Oke</string>
+    <string name="need_access_storage">Perlu akses penyimpanan</string>
+    <string name="logout">Keluar</string>
 </resources>

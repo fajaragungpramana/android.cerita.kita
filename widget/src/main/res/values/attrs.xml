@@ -18,6 +18,7 @@
             <enum name="textCapWords" value="0x00002001" />
             <enum name="textEmailAddress" value="0x00000021" />
             <enum name="textPassword" value="0x00000081" />
+            <enum name="textMultiLine" value="0x00020001" />
             <enum name="number" value="0x00000002" />
             <enum name="numberDecimal" value="0x00002002" />
             <enum name="phone" value="0x00000003" />
@@ -32,6 +33,16 @@
         <attr name="appDotIndicatorSelectedColor" format="color|reference" />
         <attr name="appDotIndicatorSize" format="dimension|reference" />
         <attr name="appDotIndicatorSpacing" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="AppRefreshLayout">
+        <attr name="appRefreshLayoutMaxOffsetTop" format="dimension|reference" />
+        <attr name="appRefreshLayoutTriggerOffsetTop" format="dimension|reference" />
+        <attr name="appRefreshLayoutIndicatorOverlay" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="AppLottieRefreshLayout">
+        <attr name="appLottieRefreshLayoutLottieRawRes" format="reference" />
     </declare-styleable>
 
 </resources>

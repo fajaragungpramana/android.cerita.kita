@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/storyFragment">
+
+    <fragment
+        android:id="@+id/storyFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.main.story.StoryFragment"
+        tools:layout="@layout/fragment_story">
+        <action
+            android:id="@+id/action_storyFragment_to_addStoryFragment"
+            app:destination="@id/addStoryFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_storyFragment_to_detailStoryFragment"
+            app:destination="@id/detailStoryFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out">
+            <argument
+                android:name="intent.key.story"
+                app:argType="com.github.fajaragungpramana.ceritakita.data.remote.story.model.Story"
+                app:nullable="true" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addStoryFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.main.story.add.AddStoryFragment"
+        tools:layout="@layout/fragment_story_add" />
+
+    <fragment
+        android:id="@+id/detailStoryFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.main.story.detail.DetailStoryFragment"
+        tools:layout="@layout/fragment_story_detail" />
+
+</navigation>

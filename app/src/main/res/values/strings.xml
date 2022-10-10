@@ -19,4 +19,16 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Register</string>
     <string name="already_have_an_account_log_in">Already have an account? <font color="#36B991"><b>Log In</b></font></string>
+    <string name="an_unknown_error_occurred">An unknown error occurred.</string>
+    <string name="share_story">Share Story</string>
+    <string name="your_story">Your Story</string>
+    <string name="story_should_not_be_empty">Story should not be empty.</string>
+    <string name="share">Share</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="need_access_camera">Need access camera</string>
+    <string name="oke">Oke</string>
+    <string name="need_access_storage">Need access storage</string>
+    <string name="logout">Logout</string>
 </resources>

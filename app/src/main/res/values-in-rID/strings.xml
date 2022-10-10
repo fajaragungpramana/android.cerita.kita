@@ -32,4 +32,6 @@
     <string name="oke">Oke</string>
     <string name="need_access_storage">Perlu akses penyimpanan</string>
     <string name="logout">Keluar</string>
+    <string name="story">Cerita</string>
+    <string name="location">Lokasi</string>
 </resources>

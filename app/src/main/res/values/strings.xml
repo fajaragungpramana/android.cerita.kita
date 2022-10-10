@@ -31,4 +31,6 @@
     <string name="oke">Oke</string>
     <string name="need_access_storage">Need access storage</string>
     <string name="logout">Logout</string>
+    <string name="story">Story</string>
+    <string name="location">Location</string>
 </resources>

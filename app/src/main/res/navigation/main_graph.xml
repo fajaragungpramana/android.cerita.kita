@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/storyFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/storyFragment"
-        android:name="com.github.fajaragungpramana.ceritakita.ui.main.story.StoryFragment"
-        tools:layout="@layout/fragment_story">
+        android:id="@+id/mainFragment"
+        android:name="com.github.fajaragungpramana.ceritakita.ui.main.MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_storyFragment_to_addStoryFragment"
+            android:id="@+id/action_mainFragment_to_addStoryFragment"
             app:destination="@id/addStoryFragment"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out" />
         <action
-            android:id="@+id/action_storyFragment_to_detailStoryFragment"
+            android:id="@+id/action_mainFragment_to_detailStoryFragment"
             app:destination="@id/detailStoryFragment"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"

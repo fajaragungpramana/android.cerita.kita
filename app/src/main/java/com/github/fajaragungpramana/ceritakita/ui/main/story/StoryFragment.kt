@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import android.widget.AbsListView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fajaragungpramana.ceritakita.R
@@ -17,6 +16,8 @@ import com.github.fajaragungpramana.ceritakita.databinding.FragmentStoryBinding
 import com.github.fajaragungpramana.ceritakita.ui.adapter.LoadStateAdapter
 import com.github.fajaragungpramana.ceritakita.ui.adapter.StoryAdapter
 import com.github.fajaragungpramana.ceritakita.ui.loading.LoadingActivity
+import com.github.fajaragungpramana.ceritakita.ui.main.MainActivity
+import com.github.fajaragungpramana.ceritakita.ui.main.MainFragmentDirections
 import com.github.fajaragungpramana.ceritakita.ui.state.StoryState
 import com.github.fajaragungpramana.ceritakita.widget.extension.snackBar
 import com.github.fajaragungpramana.ceritakita.widget.extension.toast
@@ -27,6 +28,8 @@ import kotlinx.coroutines.flow.collectLatest
 class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
 
     private val mViewModel: StoryViewModel by viewModels()
+
+    private val mMainController by lazy { (requireActivity() as MainActivity).mainController }
 
     private lateinit var mStoryAdapter: StoryAdapter
 
@@ -45,8 +48,8 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
         }
 
         mStoryAdapter = StoryAdapter {
-            val action = StoryFragmentDirections.actionStoryFragmentToDetailStoryFragment(it)
-            findNavController().navigate(action)
+            val action = MainFragmentDirections.actionMainFragmentToDetailStoryFragment(it)
+            mMainController.navigate(action)
         }
         viewBinding.rvStory.layoutManager = LinearLayoutManager(requireActivity())
         viewBinding.rvStory.adapter = mStoryAdapter.withLoadStateFooter(LoadStateAdapter())
@@ -75,8 +78,8 @@ class StoryFragment : AppFragment<FragmentStoryBinding>(), AppObserver {
         })
 
         viewBinding.fabAddStory.setOnClickListener {
-            val action = StoryFragmentDirections.actionStoryFragmentToAddStoryFragment()
-            findNavController().navigate(action)
+            val action = MainFragmentDirections.actionMainFragmentToAddStoryFragment()
+            mMainController.navigate(action)
         }
     }
 

@@ -21,6 +21,14 @@
         android:theme="@style/Theme.CeritaKita"
         tools:targetApi="32">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${map_api_key}" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".ui.loading.LoadingActivity"
             android:exported="true"

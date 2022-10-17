@@ -34,4 +34,5 @@
     <string name="logout">Keluar</string>
     <string name="story">Cerita</string>
     <string name="location">Lokasi</string>
+    <string name="google_map_error">Google Map Error.</string>
 </resources>

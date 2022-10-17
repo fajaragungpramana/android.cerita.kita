@@ -24,6 +24,11 @@ class StoryRepository @Inject constructor(private val mStoryDataSource: IStoryDa
             )
         }
 
+    override suspend fun getStoryLocations(storyRequest: StoryRequest): AppResult<Flow<List<Story>>?> =
+        connection {
+            mStoryDataSource.getStories(storyRequest).responseAsFlow { Story.mapList(it) }
+        }
+
     override suspend fun setStories(requestBody: RequestBody): AppResult<Flow<Story>?> =
         connection {
             mStoryDataSource.setStories(requestBody).responseAsFlow { Story.mapObject(it) }

@@ -14,7 +14,9 @@ data class Story(
     val description: String? = null,
     val userImage: String? = null,
     val userName: String? = null,
-    val date: String? = null
+    val date: String? = null,
+    val latitude: Double? = null,
+    val longitude: Double? = null
 
 ) : Parcelable {
     companion object {
@@ -41,7 +43,9 @@ data class Story(
                         description = it.description,
                         userImage = null,
                         userName = it.name,
-                        date = it.createdAt
+                        date = it.createdAt,
+                        latitude = it.lat,
+                        longitude = it.lon
                     )
                 )
             }

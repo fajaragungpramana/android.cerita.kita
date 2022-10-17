@@ -11,6 +11,8 @@ interface StoryUseCase {
 
     suspend fun getStories(storyRequest: StoryRequest): AppResult<Flow<PagingData<Story>>>
 
+    suspend fun getStoryLocations(storyRequest: StoryRequest): AppResult<Flow<List<Story>>?>
+
     suspend fun setStories(requestBody: RequestBody): AppResult<Flow<Story>?>
 
 }

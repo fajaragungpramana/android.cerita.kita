@@ -36,4 +36,12 @@ class AuthRepository @Inject constructor(
             mAuthDataSource.register(authRequest).responseAsFlow { Register.mapObject(it) }
         }
 
+    suspend fun loginTest(authRequest: AuthRequest): AppResult<Flow<Login>?> =
+        AuthDataSourceTest().login(authRequest)
+            .responseAsFlow { Login.mapObject(AuthDataSourceTest.dummyLoginResponse) }
+
+    suspend fun registerTest(authRequest: AuthRequest): AppResult<Flow<Register>?> =
+        AuthDataSourceTest().login(authRequest)
+            .responseAsFlow { Register.mapObject(AuthDataSourceTest.dummyRegisterResponse) }
+
 }

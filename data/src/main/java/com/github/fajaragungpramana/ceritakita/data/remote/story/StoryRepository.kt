@@ -34,4 +34,8 @@ class StoryRepository @Inject constructor(private val mStoryDataSource: IStoryDa
             mStoryDataSource.setStories(requestBody).responseAsFlow { Story.mapObject(it) }
         }
 
+    suspend fun getStoriesTest(storyRequest: StoryRequest): AppResult<Flow<List<Story>>?> =
+        StoryDataSourceTest().getStories(storyRequest)
+            .responseAsFlow { Story.mapList(StoryDataSourceTest.dummyStoryList) }
+
 }

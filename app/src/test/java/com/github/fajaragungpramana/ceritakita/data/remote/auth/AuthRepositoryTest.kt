@@ -54,10 +54,7 @@ class AuthRepositoryTest {
                 Assert.assertNotNull(login)
                 Assert.assertEquals(
                     login,
-                    Login(
-                        responseMessage = "success",
-                        token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXA4NEtYanZPVkdwU3BmUWgiLCJpYXQiOjE2Njc3ODk2OTB9.4S2FB8ASMHfLSoW0DRa0FQvLSWNsRyIfmfPHEpFBF6w"
-                    )
+                    Login.mapObject(AuthDataSourceTest.dummyLoginResponse)
                 )
             },
             onFailure = { _, _ ->
@@ -85,9 +82,7 @@ class AuthRepositoryTest {
                 Assert.assertNotNull(register)
                 Assert.assertEquals(
                     register,
-                    Register(
-                        responseMessage = "User Created"
-                    )
+                    Register.mapObject(AuthDataSourceTest.dummyRegisterResponse)
                 )
             },
             onFailure = { _, _ ->

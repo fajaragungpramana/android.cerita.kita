@@ -82,7 +82,10 @@ class LocationFragment : AppFragment<FragmentLocationBinding>(), AppObserver, On
 
                                 mGoogleMap.moveCamera(
                                     CameraUpdateFactory.newLatLngBounds(
-                                        LatLngBounds(firstLatLng, lastLatLng), 14
+                                        LatLngBounds.Builder().apply {
+                                            include(firstLatLng).include(lastLatLng)
+                                        }.build(),
+                                        14
                                     )
                                 )
                             } catch (e: ArrayIndexOutOfBoundsException) {

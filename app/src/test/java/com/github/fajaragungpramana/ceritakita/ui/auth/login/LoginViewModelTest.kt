@@ -7,9 +7,7 @@ import com.github.fajaragungpramana.ceritakita.data.remote.auth.model.Login
 import com.github.fajaragungpramana.ceritakita.data.remote.auth.request.AuthRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.test.*
 import org.junit.After
 import org.junit.Assert
@@ -63,6 +61,8 @@ class LoginViewModelTest {
         }.flowOn(Dispatchers.IO))
         `when`(mAuthInteractor.login(request)).thenReturn(expected)
         Assert.assertTrue(mAuthInteractor.login(request) is AppResult.OnSuccess)
+
+        Assert.assertNotNull(mLoginViewModel.login(request))
     }
 
 }

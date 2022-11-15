@@ -58,6 +58,8 @@ class RegisterViewModelTest {
         )
         `when`(mAuthInteractor.register(request)).thenReturn(expected)
         Assert.assertTrue(mAuthInteractor.register(request) is AppResult.OnSuccess)
+
+        Assert.assertNotNull(mRegisterViewModel.register(request))
     }
 
 }

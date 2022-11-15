@@ -71,6 +71,8 @@ class LocationViewModelTest {
         }.flowOn(Dispatchers.IO))
         `when`(mStoryInteractor.getStoryLocations(request)).thenReturn(expected)
         Assert.assertTrue(mStoryInteractor.getStoryLocations(request) is AppResult.OnSuccess)
+
+        Assert.assertNotNull(mLocationViewModel.getStoryLocations())
     }
 
 }

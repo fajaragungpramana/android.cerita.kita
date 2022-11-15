@@ -60,6 +60,8 @@ class StoryViewModelTest {
         }.flow)
         `when`(mStoryInteractor.getStories(request)).thenReturn(expected)
         Assert.assertTrue(mStoryInteractor.getStories(request) is AppResult.OnSuccess)
+
+        Assert.assertNotNull(mStoryViewModel.getStories(request))
     }
 
 }

@@ -44,4 +44,6 @@ class LoginViewModel @Inject constructor(private val mAuthUseCase: AuthUseCase) 
         )
     }
 
+    suspend fun loginTest(authRequest: AuthRequest) = mAuthUseCase.login(authRequest)
+
 }

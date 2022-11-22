@@ -59,10 +59,8 @@ class LoginViewModelTest {
                 )
             )
         }.flowOn(Dispatchers.IO))
-        `when`(mAuthInteractor.login(request)).thenReturn(expected)
-        Assert.assertTrue(mAuthInteractor.login(request) is AppResult.OnSuccess)
-
-        Assert.assertNotNull(mLoginViewModel.login(request))
+        `when`(mLoginViewModel.loginTest(request)).thenReturn(expected)
+        Assert.assertTrue(mLoginViewModel.loginTest(request) is AppResult.OnSuccess)
     }
 
 }

@@ -43,4 +43,6 @@ class RegisterViewModel @Inject constructor(private val mAuthUseCase: AuthUseCas
         )
     }
 
+    suspend fun registerTest(authRequest: AuthRequest) = mAuthUseCase.register(authRequest)
+
 }

@@ -56,10 +56,8 @@ class RegisterViewModelTest {
         val expected = AppResult.OnSuccess<Flow<Register>?>(
             flow { emit(Register(responseMessage = "This is example message.")) }.flowOn(Dispatchers.IO)
         )
-        `when`(mAuthInteractor.register(request)).thenReturn(expected)
-        Assert.assertTrue(mAuthInteractor.register(request) is AppResult.OnSuccess)
-
-        Assert.assertNotNull(mRegisterViewModel.register(request))
+        `when`(mRegisterViewModel.registerTest(request)).thenReturn(expected)
+        Assert.assertTrue(mRegisterViewModel.registerTest(request) is AppResult.OnSuccess)
     }
 
 }

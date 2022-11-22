@@ -43,4 +43,6 @@ class StoryViewModel @Inject constructor(
         mPreferenceUseCase.clear()
     }
 
+    suspend fun getStoriesTest(storyRequest: StoryRequest) = mStoryUseCase.getStories(storyRequest)
+
 }

@@ -58,10 +58,8 @@ class StoryViewModelTest {
         val expected = AppResult.OnSuccess(Pager(PagingConfig(pageSize = 15)) {
             mStoryDatasource.apply { init(request) }
         }.flow)
-        `when`(mStoryInteractor.getStories(request)).thenReturn(expected)
-        Assert.assertTrue(mStoryInteractor.getStories(request) is AppResult.OnSuccess)
-
-        Assert.assertNotNull(mStoryViewModel.getStories(request))
+        `when`(mStoryViewModel.getStoriesTest(request)).thenReturn(expected)
+        Assert.assertTrue(mStoryViewModel.getStoriesTest(request) is AppResult.OnSuccess)
     }
 
 }

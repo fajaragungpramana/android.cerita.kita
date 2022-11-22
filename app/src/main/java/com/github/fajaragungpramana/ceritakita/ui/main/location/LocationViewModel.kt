@@ -41,4 +41,7 @@ class LocationViewModel @Inject constructor(private val mStoryUseCase: StoryUseC
         )
     }
 
+    suspend fun getStoryLocationsTest() =
+        mStoryUseCase.getStoryLocations(StoryRequest(page = 1, location = 1))
+
 }

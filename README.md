@@ -4,6 +4,9 @@ Dicoding Submission for Belajar Pengembangan Aplikasi Android Intermediate Class
 ## Info
 This project use:
 - Kotlin
+- View Binding
+- Dependency Injection Hilt
+- Coroutine, Flow, Channel
 - Clean Architecture
 - MVVM Pattern
 - Repository Pattern
